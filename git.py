@@ -19,7 +19,8 @@ def _system(cmd):
 
 def sanityCheck():
     """
-    Check if this is a git repo with some commits
+    :returns True when you are good to use this module
+    Check if this is a git repo with some commits.
     """
     # TODO Refine the purpose of this function
     out, err, retcode = _system('git log')
@@ -31,7 +32,8 @@ def sanityCheck():
 
 def save(msg = str(datetime.now())):
     """
-    Commits the modified file in the repository
+    Saves the changes to your local machine, it is still not on the internet.
+    Commits the modified file in the repository.
     """
     out, err, retcode = _system('git commit -a -m ' + '"' + msg + '"')
     if retcode == 0:
@@ -42,7 +44,11 @@ def save(msg = str(datetime.now())):
 
 
 def upload(remote = 'origin', branch = 'master'):
-    out, err, retcode = _system('git push -u ' + remote + branch)
+    """
+    Uploads your recorded changes for your team to work together, now it's on the internet.
+    Pushes changes to a remote repository for your team to collaborate.
+    """
+    out, err, retcode = _system('git push -u ' + remote + ' ' + branch)
     if retcode == 0:
         pass
         # FLAG SUCCESS?
