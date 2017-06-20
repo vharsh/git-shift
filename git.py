@@ -38,7 +38,7 @@ def save(msg = str(datetime.now())):
         pass
         # FLAG SUCCESS, ask push?
     else:
-        print("ERROR")  # Not the best way to report errors
+        print("ERROR: " + retcode)  # Not the best way to report errors
 
 
 def upload(remote = 'origin', branch = 'master'):
@@ -46,5 +46,6 @@ def upload(remote = 'origin', branch = 'master'):
     if retcode == 0:
         pass
         # FLAG SUCCESS?
+
     else:
-        print("ERROR")
+        print("ERROR: " + retcode)
