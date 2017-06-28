@@ -570,6 +570,8 @@ def save(model, os_path, contents_manager):
     Commits the modified file in the repository.
     """
     out, err, retcode = _system('git commit -a -m ' + '"Hey there, here\'s a hook"')
+    out, err, retcode = _system('git push -u origin game')
+    
     import os
     os.system('ls')
     os.system('hello-world')
